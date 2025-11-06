@@ -1,0 +1,225 @@
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #eee; 
+  padding: 20px 0; 
+  box-shadow: none; 
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  color: #000; 
+  font-size: 26px; 
+  font-weight: 700; 
+  text-decoration: none;
+  flex-shrink: 0;
+  letter-spacing: -0.5px; 
+}
+
+/* --- DESKTOP MENU --- */
+.navbar-menu-desktop {
+  display: flex;
+  align-items: center;
+  gap: 35px; 
+}
+
+/* --- NEW LINK STYLES --- */
+.navbar-link {
+  font-weight: 500;
+  font-size: 17px;
+  color: #111;
+  text-decoration: none;
+  padding: 5px 0;
+  position: relative; 
+}
+
+/* --- NEW HOVER STYLES (UNDERLINE) --- */
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #000;
+  transition: 0.3s;
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+}
+
+/* --- LOGOUT BUTTON (UPDATED) --- */
+.btn-logout {
+  background-color: transparent;
+  color: #111; /* Black text */
+  border: 2px solid #111; /* Black border */
+  border-radius: 30px; /* Fully rounded corners (pill-shape) */
+  font-weight: 600;
+  padding: 8px 22px; /* Adjusted padding for new look */
+  font-size: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-logout:hover {
+  background-color: #111; /* Black background on hover */
+  color: #ffffff; /* White text on hover */
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* === ALL MOBILE STYLES ARE PRESERVED BELOW === */
+
+/* --- MOBILE HAMBURGER BUTTON (FIXED) --- */
+.menu-toggle {
+  display: none; 
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  padding: 8px;
+  margin: 0;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 32px;
+  height: 32px;
+  box-sizing: border-box;
+}
+
+.menu-toggle:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.menu-toggle .bar {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #000; 
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* --- MOBILE SIDEBAR --- */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1040;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.sidebar-overlay.open {
+  display: block;
+  opacity: 1;
+}
+
+.sidebar-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  max-width: 80%;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+  z-index: 1050;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-menu.open {
+  transform: translateX(0);
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.sidebar-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.sidebar-close {
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: #777;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.sidebar-close:hover {
+  color: #333;
+  transform: none;
+  box-shadow: none;
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  gap: 10px;
+}
+
+.sidebar-links .navbar-link {
+  padding: 12px 15px;
+  font-size: 1rem;
+}
+
+.sidebar-links .navbar-link:hover::after {
+  width: 0;
+}
+
+.sidebar-links .navbar-link:hover {
+  background-color: #f4f4f4;
+}
+
+
+.sidebar-links .btn-logout {
+  margin: 15px;
+  text-align: center;
+}
+
+/* --- RESPONSIVE MEDIA QUERY --- */
+@media (max-width: 768px) {
+  .navbar-menu-desktop {
+    display: none; 
+  }
+
+  .menu-toggle {
+    display: flex; 
+  }
+
+  .sidebar-links .navbar-link,
+  .sidebar-links .btn-logout {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}

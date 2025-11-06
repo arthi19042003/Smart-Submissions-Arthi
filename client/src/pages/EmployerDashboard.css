@@ -1,0 +1,129 @@
+/* client/src/pages/EmployerDashboard.css */
+
+/* Main wrapper with space from navbar */
+.dashboard-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  margin-top: 60px; /* Space below the sticky navbar */
+  text-align: center;
+  font-family: "Poppins", sans-serif; /* You may need to import this font */
+}
+
+/* Main "Welcome" heading */
+.dashboard-wrapper h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #6a4ce8; /* Your requested purple */
+  margin-bottom: 6px;
+}
+
+/* Subtitle text */
+.dashboard-wrapper .dash-subtitle {
+  font-size: 15px;
+  color: #6b6b6b;
+  margin-bottom: 45px;
+}
+
+/* The 2x2 Grid */
+.dashboard-grid {
+  display: grid;
+  /* This creates the 2x2 grid */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* New Card styles */
+.dashboard-card {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.08);
+  transition: 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  text-align: left; /* Align card content left */
+  min-height: 200px; /* Give a consistent height */
+}
+
+.dashboard-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Heading */
+.dashboard-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+/* Card Text */
+.dashboard-card p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 18px;
+  flex-grow: 1; /* This pushes the button to the bottom */
+}
+
+/* New Purple Button Style (UPDATED) */
+.purple-btn {
+  background: #6a4ce8; /* Fallback color */
+  background: linear-gradient(to right, #6a4ce8, #9333ea);
+  color: #fff !important; /* Use !important to override other link styles */
+  border: none;
+  padding: 12px 20px; 
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 600;
+  width: 100%; /* <-- SET TO FULL WIDTH */
+  text-decoration: none !important;
+  display: inline-block;
+  text-align: center;
+  transition: all 0.3s ease;
+  margin-top: auto; /* Pushes button to the bottom */
+  box-sizing: border-box; /* Ensures padding doesn't break 100% width */
+}
+
+.purple-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(106, 76, 232, 0.3);
+}
+
+/* Status message styling (adapted from your old CSS) */
+.dashboard-card .status-complete {
+  color: #155724;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.dashboard-card .status-incomplete {
+  color: #721c24;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+
+/* --- Responsive Styles --- */
+@media (max-width: 900px) {
+  /* Stack to 1 column on tablets and mobile */
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-wrapper {
+    padding: 30px 15px;
+    margin-top: 20px;
+  }
+  .dashboard-wrapper h1 {
+    font-size: 28px; /* Slightly smaller for mobile */
+  }
+}
